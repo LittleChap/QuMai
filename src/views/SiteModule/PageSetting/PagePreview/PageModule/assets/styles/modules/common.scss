@@ -1,0 +1,195 @@
+@import "./mixin";
+@import "config";
+
+.flexBox{//flex容器
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  &.column { //竖向flex布局
+    flex-direction: column;
+  }
+  &.center { //垂直居中
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+  .flexChild { //伸缩的子元素
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+}
+
+.o-hidden { //超出部分隐藏
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.v-input {
+  width: pr(664);
+  height: pr(88);
+  padding-left:pr(76);
+  border-radius: $borderRadius;
+  background-color: #fff;
+  border: 1px solid #d2d2d2;
+  color: $importantInfoAndTitleColor;
+  font-size: $headerTextFontSize;
+}
+
+.v-button {
+  display: block;
+  vertical-align: middle;
+  width: pr(664);
+  height: pr(88);
+  border-radius: $borderRadius;
+  background-color: $buttonColor;
+  color: $buttonTextColor;
+  font-size: $headerTextFontSize;
+  &:hover {
+    background-color: $buttonClickColor;
+  }
+  &:focus {
+    border: none;
+  }
+  &.disabled {
+    background: #cccccc;
+  }
+}
+
+/* checkbox switch  的样式*/
+.v-switch {
+  width: pr(76);
+  height: pr(46);
+  position: relative;
+  border: pr(2) solid #dfdfdf;
+  background-color: #fdfdfd;
+  box-shadow: #dfdfdf 0 0 0 0 inset;
+  border-radius: pr(24);
+  background-clip: content-box;
+  display: inline-block;
+  -webkit-appearance: none;
+  user-select: none;
+  outline: none;
+  &:before {
+    content: '';
+    width: pr(42);
+    height: pr(42);
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: pr(22);
+    background-color: #fff;
+    box-shadow: 0 1px pr(3) rgba(0, 0, 0, 0.4);
+  }
+  &:checked {
+    border-color: $mainFontColor;
+    box-shadow: $mainFontColor 0 0 0 pr(20) inset;
+    background-color: $mainFontColor;
+  }
+  &:checked:before {
+    left: pr(30);
+  }
+  &.v-switch-animbg {
+    transition: background-color ease 0.4s;
+    &:before {
+      transition: left 0.3s;
+    }
+    &:checked {
+      box-shadow: #dfdfdf 0 0 0 0 inset;
+      background-color: $mainFontColor;
+      transition: border-color 0.4s, background-color ease 0.4s;
+    }
+    &:checked:before {
+      transition: left 0.3s;
+    }
+  }
+  &.v-switch-anim {
+    transition: border cubic-bezier(0, 0, 0, 1) 0.4s, box-shadow cubic-bezier(0, 0, 0, 1) 0.4s;
+    &:before {
+      transition: left 0.3s;
+    }
+    &:checked {
+      box-shadow: $mainFontColor 0 0 0 pr(20) inset;
+      background-color: $mainFontColor;
+      transition: border ease 0.4s, box-shadow ease 0.4s, background-color ease 1.2s;
+    }
+    &:checked:before {
+      transition: left 0.3s;
+    }
+  }
+}
+
+// 标签
+.v-label{
+  display: inline-block;
+  line-height: pr(32);
+  padding: 0 pr(8);
+  border-radius: pr(4);
+  border: 1px solid $mainFontColor;
+  color: $mainFontColor;
+  font-size: $smallFontSize;
+  vertical-align: top;
+}
+
+/* 单选按钮 */
+.v-single-select {
+  display: inline-block;
+  width: pr(42);
+  height: pr(42);
+  vertical-align: middle;
+  font-size: pr(42);
+  color: $secondaryTextColor;
+  &.icon-change-disable{
+    color: $secondaryTextColor;
+  }
+  &.icon-change-highlight{
+    color: $buttonColor;
+  }
+  &.icon-change-isDisabled{
+    color: $lineColor;
+  }
+}
+/* 单行列表 */
+.v-list-item{
+  display: flex;
+  height: $defaultHeight;
+  padding: 0 pr(24);
+  line-height: $defaultHeight;
+  border-bottom: 1px solid $lineColor;
+  background: $footerBackgroundColor;
+  font-size: $importantFontSize;
+}
+
+.vux-popup-dialog {
+  overflow: hidden;
+}
+
+/* 空状态 */
+.v-empty-status{
+  padding-top: pr(80);
+  text-align: center;
+  img{
+
+    height: pr(260);
+    margin-bottom: pr(30);
+  }
+  p{
+    line-height: pr(42);
+    font-size: $importantFontSize;
+    color: $importantInfoAndTitleColor;
+  }
+  .empty-button{
+    margin: pr(100) auto 0;
+    line-height: $defaultHeight;
+    text-align: center;
+    color:#fff;
+  }
+}

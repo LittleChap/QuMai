@@ -1,0 +1,291 @@
+@import "./module/config";
+
+*{
+  box-sizing: border-box;
+  font-family: "Microsoft YaHei","微软雅黑","Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB",Arial,sans-serif;
+}
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-size: $font-default;
+  line-height: 1.5;
+  //font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+}
+
+
+html, body {
+  min-height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color:  #3f80ea;
+  border-radius: 4px;
+} /* 滑块颜色 */
+
+::-webkit-scrollbar-corner {
+  background-color: black;
+} /* 横向滚动条和纵向滚动条相交处尖角的颜色 */
+
+@-moz-document url-prefix(http://),url-prefix(https://) {
+  /* 滚动条颜色 */
+  scrollbar {
+    -moz-appearance: none !important;
+    background: rgb(0,255,0) !important;
+  }
+  /* 滚动条按钮颜色 */
+  thumb,scrollbarbutton {
+    -moz-appearance: none !important;
+    background-color: rgb(0,0,255) !important;
+  }
+  /* 鼠标悬停时按钮颜色 */
+
+  thumb:hover,scrollbarbutton:hover {
+    -moz-appearance: none !important;
+    background-color: rgb(255,0,0) !important;
+  }
+  /* 隐藏上下箭头 */
+  scrollbarbutton {
+    display: none !important;
+  }
+  /* 纵向滚动条宽度 */
+  scrollbar[orient="vertical"] {
+    min-width: 15px !important;
+  }
+}
+
+// 输入框 默认填充 颜色修改
+//input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill{
+//  background-color: #fff !important;
+//  -webkit-box-shadow: 0 0 0 1000px #fff inset !important;
+//  -webkit-text-fill-color: #1f2d3d !important;
+//}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+  outline: none;
+}
+ul, ol {
+  padding: 0;
+  margin: 0;
+}
+
+li{
+  list-style: none;
+}
+
+//vue router transition css
+.fade-enter-active,
+.fade-leave-active {
+  transition: all .2s ease
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
+}
+
+.el-pagination{
+  .el-select .el-input .el-select__caret{
+    line-height: 28px;
+  }
+}
+
+/* 全局配置 */
+#app{
+  min-width: 1200px;
+  min-height: 100%
+}
+
+/* 白底面板 */
+.v-wrap{
+  box-sizing: border-box;
+  min-height: calc(100vh - 130px);
+  margin: 20px 0;
+  padding: 0 18px 18px;
+  background: #fff;
+  border-radius: 8px;
+}
+/* 标题 */
+.v-title {
+  display: inline-block;
+  font-size: $font-sub-title;
+  color: $text-second;
+  line-height: 40px;
+  font-weight: normal;
+  border-bottom: 2px solid $color-primary;
+  margin: 10px 0 ;
+}
+
+/* 小标题 */
+.v-sub-title {
+  display: inline-block;
+  font-size: $font-min-title;
+  color: $text-second;
+  line-height: 40px;
+  font-weight: normal;
+  margin: 10px 0 ;
+}
+
+
+/* 按钮 */
+.v-button{
+  box-sizing: border-box;
+  width: 160px;
+  height: 40px;
+}
+
+
+/* 表单 */
+.v-form-bg{
+  background-color: $table-background-hover;
+  padding: 40px 0 20px;
+  margin-top: 10px;
+}
+.v-form{
+  .el-select,
+  .el-input,
+  .el-textarea,
+  .el-date-editor,
+  .el-cascader{
+    width: 90%;
+  }
+  .el-select, .el-cascader{
+    .el-input{
+      width: 100%;
+    }
+  }
+  &.v-forTree{
+    .el-col{
+      min-width: 436px
+    }
+  }
+}
+
+/* 编辑、删除、上移、下移的icon处理 */
+.v-icon-forth{
+  display: inline-block;
+  font-size: 18px;
+  padding: 0 10px;
+  cursor: pointer;
+  &.v-icon-left{
+    padding-left: 4px;
+  }
+  &.v-icon-right{
+    padding-right: 4px;
+  }
+  &.el-empty{
+    width: 32px;
+  }
+}
+/* 表格中的按钮 */
+
+.v-blue{
+  color: $color-primary;
+}
+.v-red {
+  color: $color-danger;
+}
+.v-yellow {
+  color: $color-warning;
+}
+.v-text-cursor{
+  cursor: pointer;
+  &:hover{
+    opacity: 0.8;
+  }
+}
+.v-border-red {
+  border-color: $color-danger !important;
+  .el-input__inner, &:focus, .el-input__inner:focus {
+    border-color: $color-danger !important;
+  }
+}
+td.v-input-box{ // 表格中的保错
+  //td{
+    padding-bottom: 0 !important;
+  //}
+  //padding-top: 24px !important;
+  .v-input-item{
+    position: relative;
+    margin-bottom: 24px;
+    margin-top: 12px;
+    .el-input{
+      width: 100%;
+    }
+  }
+  .v-input-error {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 0;
+    line-height: 12px;
+    text-align: left;
+  }
+}
+.el-breadcrumb {
+  margin:15px 0;
+}
+ /* 竖线分割线 */
+.v-separator {
+  margin: 0 10px;
+  font-style: normal;
+}
+
+/*页码 */
+.v-pageBox{
+  text-align: center;
+  margin: 20px 0;
+}
+/* 弹窗 */
+.v-dialog{
+  .el-dialog{
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .el-dialog__header{
+    padding: 13px 20px;
+    background: linear-gradient(-90deg, #2fb2f4 0%, #a585ee 100%);
+    .el-dialog__title{
+      color: #fff;
+    }
+    .el-dialog__headerbtn{
+      top: 14px;
+    }
+    .el-dialog__headerbtn .el-dialog__close, .el-dialog__headerbtn:focus .el-dialog__close, .el-dialog__headerbtn:hover .el-dialog__close{
+      color: #fff;
+    }
+  }
+  .el-dialog__body{
+    padding-bottom: 10px;
+  }
+  .v-dialog-footer{
+    text-align: center;
+  }
+  &.v-max-height-body{ // 给body 加一个最大高度
+    .el-dialog__body{
+      max-height: 80vh;
+      min-height: 60vh;
+      padding-bottom: 0;
+      overflow: auto;
+    }
+    .v-dialog-footer{
+      margin-bottom: 20px;
+    }
+    .el-dialog__footer{
+      padding: 0;
+    }
+  }
+
+}

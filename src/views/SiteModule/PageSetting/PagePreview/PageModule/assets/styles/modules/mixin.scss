@@ -1,0 +1,14 @@
+@function pr($px) {
+  //@return $px*320/$designWidth/20 + rem;
+  @return $px/2 + px
+}
+
+//计算 100vw - Xrem
+@function calc100vw($px) {
+  @return 100vw - (($px*320/$designWidth/20*6.25));
+}
+
+//计算 100vw - Xrem
+@function calc100vh($px) {
+  @return 100vh - (($px*320/$designWidth/20*6.25));
+}
